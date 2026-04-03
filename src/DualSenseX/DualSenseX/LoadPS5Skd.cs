@@ -16,6 +16,9 @@ using Microsoft.Win32;
 using ModernWpf.Controls;
 using WPFCustomMessageBox;
 
+// Disambiguate Application between System.Windows.Forms and System.Windows (WPF).
+using Application = System.Windows.Forms.Application;
+
 namespace DualSenseX;
 
 public class LoadPS5Skd

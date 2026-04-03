@@ -49,6 +49,29 @@ using WPFCustomMessageBox;
 using WindowsInput;
 using WindowsInput.Native;
 
+// Disambiguate types that exist in both System.Windows.Forms and WPF namespaces.
+// This project is WPF-based; unqualified names resolve to WPF types.
+// System.Windows.Forms.Application is used explicitly where needed (e.g. Application.Restart).
+using Application = System.Windows.Application;
+using Brush = System.Windows.Media.Brush;
+using Brushes = System.Windows.Media.Brushes;
+using Button = System.Windows.Controls.Button;
+using CheckBox = System.Windows.Controls.CheckBox;
+using Color = System.Windows.Media.Color;
+using ComboBox = System.Windows.Controls.ComboBox;
+using FontFamily = System.Windows.Media.FontFamily;
+using Image = System.Windows.Controls.Image;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using Label = System.Windows.Controls.Label;
+using ListView = System.Windows.Controls.ListView;
+using MessageBox = System.Windows.MessageBox;
+using MouseEventArgs = System.Windows.Input.MouseEventArgs;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
+using ProgressBar = System.Windows.Controls.ProgressBar;
+using Rectangle = System.Windows.Shapes.Rectangle;
+using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
+using TextBox = System.Windows.Controls.TextBox;
+
 namespace DualSenseX;
 
 public class Main : Window, IComponentConnector
@@ -2192,7 +2215,7 @@ public class Main : Window, IComponentConnector
 											((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 										}
 										await Task.Delay(2000);
-										Application.Restart();
+										System.Windows.Forms.Application.Restart();
 										Environment.Exit(0);
 									}
 									break;
@@ -2222,7 +2245,7 @@ public class Main : Window, IComponentConnector
 											((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 										}
 										await Task.Delay(2000);
-										Application.Restart();
+										System.Windows.Forms.Application.Restart();
 										Environment.Exit(0);
 									}
 									break;
@@ -3415,7 +3438,7 @@ public class Main : Window, IComponentConnector
 							((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 						}
 						await Task.Delay(2000);
-						Application.Restart();
+						System.Windows.Forms.Application.Restart();
 						Environment.Exit(0);
 					}
 				}
@@ -3870,7 +3893,7 @@ public class Main : Window, IComponentConnector
 							((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 						}
 						await Task.Delay(2000);
-						Application.Restart();
+						System.Windows.Forms.Application.Restart();
 						Environment.Exit(0);
 					}
 				}
@@ -8772,7 +8795,7 @@ public class Main : Window, IComponentConnector
 							((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 						}
 						await Task.Delay(2000);
-						Application.Restart();
+						System.Windows.Forms.Application.Restart();
 						Environment.Exit(0);
 					}
 					else if ((int)val == 2)
@@ -8838,7 +8861,7 @@ public class Main : Window, IComponentConnector
 							((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 						}
 						await Task.Delay(2000);
-						Application.Restart();
+						System.Windows.Forms.Application.Restart();
 						Environment.Exit(0);
 					}
 					else if ((int)val2 == 2)
@@ -8902,7 +8925,7 @@ public class Main : Window, IComponentConnector
 						((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 					}
 					await Task.Delay(2000);
-					Application.Restart();
+					System.Windows.Forms.Application.Restart();
 					Environment.Exit(0);
 				}
 				else if ((int)val3 == 2)
@@ -8975,7 +8998,7 @@ public class Main : Window, IComponentConnector
 							((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 						}
 						await Task.Delay(2000);
-						Application.Restart();
+						System.Windows.Forms.Application.Restart();
 						Environment.Exit(0);
 					}
 					else if ((int)val == 2)
@@ -9033,7 +9056,7 @@ public class Main : Window, IComponentConnector
 							((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 						}
 						await Task.Delay(2000);
-						Application.Restart();
+						System.Windows.Forms.Application.Restart();
 						Environment.Exit(0);
 					}
 					else if ((int)val2 == 2)
@@ -9089,7 +9112,7 @@ public class Main : Window, IComponentConnector
 						((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 					}
 					await Task.Delay(2000);
-					Application.Restart();
+					System.Windows.Forms.Application.Restart();
 					Environment.Exit(0);
 				}
 				else if ((int)val3 == 2)
@@ -17077,7 +17100,7 @@ public class Main : Window, IComponentConnector
 							((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 						}
 						await Task.Delay(2000);
-						Application.Restart();
+						System.Windows.Forms.Application.Restart();
 						Environment.Exit(0);
 					}
 				}
