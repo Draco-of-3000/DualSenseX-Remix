@@ -1,0 +1,155 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>DualSenseX</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>True</UseWPF>
+    <TargetFramework>net472</TargetFramework>
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RootNamespace />
+  </PropertyGroup>
+
+  <!-- Embedded resources -->
+  <ItemGroup>
+    <None Remove="assets/**" />
+    <None Remove="resources/**" />
+    <None Remove="*.baml" />
+    <None Remove="dualsensex_icon.png" />
+    <None Remove="message-20box/*.baml" />
+    <EmbeddedResource Include="assets/gamepadicon_dark.png" LogicalName="assets/gamepadicon_dark.png" />
+    <EmbeddedResource Include="assets/pp-logo.png" LogicalName="assets/pp-logo.png" />
+    <EmbeddedResource Include="assets/downloadicon.png" LogicalName="assets/downloadicon.png" />
+    <EmbeddedResource Include="progressbardownloaddialog.baml" LogicalName="progressbardownloaddialog.baml" />
+    <EmbeddedResource Include="assets/dualsensex_icon.png" LogicalName="assets/dualsensex_icon.png" />
+    <EmbeddedResource Include="assets/gamepadicon_light.png" LogicalName="assets/gamepadicon_light.png" />
+    <EmbeddedResource Include="assets/github_logo_white.png" LogicalName="assets/github_logo_white.png" />
+    <EmbeddedResource Include="assets/en-us-flag.png" LogicalName="assets/en-us-flag.png" />
+    <EmbeddedResource Include="popupcontentdialog.baml" LogicalName="popupcontentdialog.baml" />
+    <EmbeddedResource Include="assets/ko-fi_logo_rgb_darkbg.png" LogicalName="assets/ko-fi_logo_rgb_darkbg.png" />
+    <EmbeddedResource Include="assets/dualsense_redcolor.png" LogicalName="assets/dualsense_redcolor.png" />
+    <EmbeddedResource Include="assets/ko-fi_logo_rgb.png" LogicalName="assets/ko-fi_logo_rgb.png" />
+    <EmbeddedResource Include="assets/dualsense_blackcolor.png" LogicalName="assets/dualsense_blackcolor.png" />
+    <EmbeddedResource Include="updateappwindow.baml" LogicalName="updateappwindow.baml" />
+    <EmbeddedResource Include="assets/language_icon.png" LogicalName="assets/language_icon.png" />
+    <EmbeddedResource Include="message-20box/custommessageboxwindow.baml" LogicalName="message%20box/custommessageboxwindow.baml" />
+    <EmbeddedResource Include="resources/xboxfonthue.otf" LogicalName="resources/xboxfonthue.otf" />
+    <EmbeddedResource Include="dualsensex_icon.png" LogicalName="dualsensex_icon.png" />
+    <EmbeddedResource Include="assets/discord-logo-wordmark-color.png" LogicalName="assets/discord-logo+wordmark-color.png" />
+    <EmbeddedResource Include="assets/backgroundimages/background2.jpg" LogicalName="assets/backgroundimages/background2.jpg" />
+    <EmbeddedResource Include="assets/backgroundimages/background3.jpg" LogicalName="assets/backgroundimages/background3.jpg" />
+    <EmbeddedResource Include="assets/backgroundimages/background6.jpg" LogicalName="assets/backgroundimages/background6.jpg" />
+    <EmbeddedResource Include="assets/backgroundimages/background1.jpg" LogicalName="assets/backgroundimages/background1.jpg" />
+    <EmbeddedResource Include="assets/backgroundimages/background4.jpg" LogicalName="assets/backgroundimages/background4.jpg" />
+    <EmbeddedResource Include="assets/backgroundimages/background7.jpg" LogicalName="assets/backgroundimages/background7.jpg" />
+    <EmbeddedResource Include="assets/backgroundimages/background5.jpg" LogicalName="assets/backgroundimages/background5.jpg" />
+    <EmbeddedResource Include="assets/backgroundimages/background8.jpg" LogicalName="assets/backgroundimages/background8.jpg" />
+    <EmbeddedResource Include="assets/backgroundimages/background9.jpg" LogicalName="assets/backgroundimages/background9.jpg" />
+    <EmbeddedResource Include="contentdialogexample.baml" LogicalName="contentdialogexample.baml" />
+    <EmbeddedResource Include="assets/infoicon_light.png" LogicalName="assets/infoicon_light.png" />
+    <EmbeddedResource Include="assets/github-mark-light-120px-plus.png" LogicalName="assets/github-mark-light-120px-plus.png" />
+    <EmbeddedResource Include="assets/xbox_controller_mockup_nolines_test.png" LogicalName="assets/xbox_controller_mockup_nolines_test.png" />
+    <EmbeddedResource Include="triggerinfowindow.baml" LogicalName="triggerinfowindow.baml" />
+    <EmbeddedResource Include="assets/dualsense_whitecolor.png" LogicalName="assets/dualsense_whitecolor.png" />
+    <EmbeddedResource Include="assets/batteryicons/battery0.ico" LogicalName="assets/batteryicons/battery0.ico" />
+    <EmbeddedResource Include="assets/github_logo.png" LogicalName="assets/github_logo.png" />
+    <EmbeddedResource Include="assets/gameslist_icon.png" LogicalName="assets/gameslist_icon.png" />
+    <EmbeddedResource Include="assets/main.ico" LogicalName="assets/main.ico" />
+    <EmbeddedResource Include="main.baml" LogicalName="main.baml" />
+    <EmbeddedResource Include="assets/github-mark-120px-plus.png" LogicalName="assets/github-mark-120px-plus.png" />
+    <EmbeddedResource Include="assets/infoicon_dark.png" LogicalName="assets/infoicon_dark.png" />
+    <EmbeddedResource Include="assets/maingificon.gif" LogicalName="assets/maingificon.gif" />
+    <EmbeddedResource Include="app.baml" LogicalName="app.baml" />
+    <EmbeddedResource Include="resources/psfonthue.otf" LogicalName="resources/psfonthue.otf" />
+    <EmbeddedResource Include="buttonstyle.baml" LogicalName="buttonstyle.baml" />
+  </ItemGroup>
+
+  <!-- NuGet packages -->
+  <ItemGroup>
+    <PackageReference Include="HidSharp" Version="2.1.0" />
+    <PackageReference Include="Nefarius.ViGEm.Client" Version="1.21.442" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NAudio" Version="2.1.0" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AppCenter" Version="5.0.3" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.3" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.3" />
+  </ItemGroup>
+
+  <!-- Local lib references (not available on NuGet or version-specific) -->
+  <ItemGroup>
+    <Reference Include="ModernWpf">
+      <HintPath>lib\ModernWpf.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernWpf.Controls">
+      <HintPath>lib\ModernWpf.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsInput">
+      <HintPath>lib\WindowsInput.dll</HintPath>
+    </Reference>
+    <Reference Include="Squirrel">
+      <HintPath>lib\Squirrel.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Squirrel">
+      <HintPath>lib\NuGet.Squirrel.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet">
+      <HintPath>lib\DeltaCompressionDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet.MsDelta">
+      <HintPath>lib\DeltaCompressionDotNet.MsDelta.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet.PatchApi">
+      <HintPath>lib\DeltaCompressionDotNet.PatchApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>lib\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb">
+      <HintPath>lib\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb">
+      <HintPath>lib\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks">
+      <HintPath>lib\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCompress">
+      <HintPath>lib\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="NamedPipeWrapper">
+      <HintPath>lib\NamedPipeWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Device.Net">
+      <HintPath>lib\Device.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Hid.Net">
+      <HintPath>lib\Hid.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Usb.Net">
+      <HintPath>lib\Usb.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Polly">
+      <HintPath>lib\Polly.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Framework references -->
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+  </ItemGroup>
+</Project>

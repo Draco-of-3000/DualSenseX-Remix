@@ -1,0 +1,15 @@
+# Build output
+src/DualSenseX/bin/
+src/DualSenseX/obj/
+
+# IDE
+.vs/
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep lib/ DLLs (they are checked in intentionally)
+!src/DualSenseX/lib/

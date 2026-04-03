@@ -1,0 +1,45 @@
+name: Build DualSenseX
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Restore NuGet packages
+      run: nuget restore src/DualSenseX/DualSenseX.csproj
+
+    - name: Build
+      run: msbuild src/DualSenseX/DualSenseX.csproj /p:Configuration=Release /p:Platform="Any CPU"
+
+    - name: Create output package
+      run: |
+        mkdir DualSenseX-Remix
+        xcopy /E /I src\DualSenseX\bin\Release\* DualSenseX-Remix\
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: DualSenseX-Remix
+        path: DualSenseX-Remix/
+        retention-days: 90
