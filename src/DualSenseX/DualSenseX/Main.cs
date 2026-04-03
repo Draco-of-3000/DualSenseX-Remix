@@ -1512,10 +1512,10 @@ public class Main : Window, IComponentConnector
 		HideOverlay();
 		Main main = this;
 		Rect workArea = SystemParameters.WorkArea;
-		((FrameworkElement)main).Height = ((Rect)(ref workArea)).Height / 1.5;
+		((FrameworkElement)main).Height = workArea.Height / 1.5;
 		Main main2 = this;
 		workArea = SystemParameters.WorkArea;
-		((FrameworkElement)main2).Width = ((Rect)(ref workArea)).Width / 1.5;
+		((FrameworkElement)main2).Width = workArea.Width / 1.5;
 		ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
 		await Task.Delay(2000);
 		Progress<int> progress = new Progress<int>(delegate(int value)
@@ -2676,10 +2676,10 @@ public class Main : Window, IComponentConnector
 						isAppClosing = true;
 						((UIElement)App_TaskBarIcon).Visibility = (Visibility)1;
 						Color saveFile_TouchpadLEDColor = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-						_r = ((Color)(ref saveFile_TouchpadLEDColor)).R;
-						_g = ((Color)(ref saveFile_TouchpadLEDColor)).G;
-						_b = ((Color)(ref saveFile_TouchpadLEDColor)).B;
-						connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
+						_r = saveFile_TouchpadLEDColor.R;
+						_g = saveFile_TouchpadLEDColor.G;
+						_b = saveFile_TouchpadLEDColor.B;
+						connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
 						connectedController.NormalTrigger(leftTrigger: false, rightTrigger: false, bothTriggers: true);
 						connectedController.SetMicLedStatus(MicLED.OFF);
 						connectedController.SetPlayerLedStatus(PlayerLED.AllOff, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED1, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED2, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED3, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED4, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED5);
@@ -4186,7 +4186,7 @@ public class Main : Window, IComponentConnector
 	{
 		if (o is Main main)
 		{
-			main.OnScaleValueChanged((double)((DependencyPropertyChangedEventArgs)(ref e)).OldValue, (double)((DependencyPropertyChangedEventArgs)(ref e)).NewValue);
+			main.OnScaleValueChanged((double)e.OldValue, (double)e.NewValue);
 		}
 	}
 
@@ -4604,7 +4604,7 @@ public class Main : Window, IComponentConnector
 					if (GlobalVar.Savefile.SaveFile_ControllerLEDColorMode == TouchpadColorMode.StaticColor)
 					{
 						Color saveFile_TouchpadLEDColor = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-						connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
+						connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
 					}
 					else if (GlobalVar.Savefile.SaveFile_ControllerLEDColorMode == TouchpadColorMode.Rainbow)
 					{
@@ -5185,7 +5185,7 @@ public class Main : Window, IComponentConnector
 			if (GlobalVar.Savefile.SaveFile_ControllerLEDColorMode == TouchpadColorMode.StaticColor)
 			{
 				Color saveFile_TouchpadLEDColor = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-				connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
+				connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
 			}
 			else if (GlobalVar.Savefile.SaveFile_ControllerLEDColorMode == TouchpadColorMode.Rainbow)
 			{
@@ -5800,7 +5800,7 @@ public class Main : Window, IComponentConnector
 			if (GlobalVar.Savefile.SaveFile_ControllerLEDColorMode == TouchpadColorMode.StaticColor)
 			{
 				Color saveFile_TouchpadLEDColor = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-				connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
+				connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
 			}
 			else if (GlobalVar.Savefile.SaveFile_ControllerLEDColorMode == TouchpadColorMode.Rainbow)
 			{
@@ -8578,10 +8578,10 @@ public class Main : Window, IComponentConnector
 			((UIElement)HomePage_TouchpadLedCustomColorStack).Visibility = (Visibility)2;
 			GlobalVar.Savefile.SaveFile_ControllerLEDColorMode = TouchpadColorMode.StaticColor;
 			Color saveFile_TouchpadLEDColor = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-			connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
-			_r = ((Color)(ref saveFile_TouchpadLEDColor)).R;
-			_g = ((Color)(ref saveFile_TouchpadLEDColor)).G;
-			_b = ((Color)(ref saveFile_TouchpadLEDColor)).B;
+			connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
+			_r = saveFile_TouchpadLEDColor.R;
+			_g = saveFile_TouchpadLEDColor.G;
+			_b = saveFile_TouchpadLEDColor.B;
 			SaveSettingsINI();
 		}
 		else if (((Selector)HomePage_TouchpadLedColorMode).SelectedIndex == 1)
@@ -8722,7 +8722,7 @@ public class Main : Window, IComponentConnector
 		try
 		{
 			Color saveFile_TouchpadLEDColor = (Color)((PropertyInfo)((Selector)comboColors).SelectedValue).GetValue(null, null);
-			connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
+			connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
 			GlobalVar.Savefile.SaveFile_TouchpadLEDColor = saveFile_TouchpadLEDColor;
 			SaveSettingsINI();
 		}
@@ -8754,10 +8754,10 @@ public class Main : Window, IComponentConnector
 					if ((int)val == 1)
 					{
 						Color saveFile_TouchpadLEDColor = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-						_r = ((Color)(ref saveFile_TouchpadLEDColor)).R;
-						_g = ((Color)(ref saveFile_TouchpadLEDColor)).G;
-						_b = ((Color)(ref saveFile_TouchpadLEDColor)).B;
-						connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
+						_r = saveFile_TouchpadLEDColor.R;
+						_g = saveFile_TouchpadLEDColor.G;
+						_b = saveFile_TouchpadLEDColor.B;
+						connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
 						connectedController.NormalTrigger(leftTrigger: false, rightTrigger: false, bothTriggers: true);
 						connectedController.SetMicLedStatus(MicLED.OFF);
 						connectedController.SetPlayerLedStatus(PlayerLED.AllOff, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED1, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED2, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED3, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED4, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED5);
@@ -8824,10 +8824,10 @@ public class Main : Window, IComponentConnector
 					if ((int)val2 == 1)
 					{
 						Color saveFile_TouchpadLEDColor2 = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-						_r = ((Color)(ref saveFile_TouchpadLEDColor2)).R;
-						_g = ((Color)(ref saveFile_TouchpadLEDColor2)).G;
-						_b = ((Color)(ref saveFile_TouchpadLEDColor2)).B;
-						connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor2)).R, ((Color)(ref saveFile_TouchpadLEDColor2)).G, ((Color)(ref saveFile_TouchpadLEDColor2)).B);
+						_r = saveFile_TouchpadLEDColor2.R;
+						_g = saveFile_TouchpadLEDColor2.G;
+						_b = saveFile_TouchpadLEDColor2.B;
+						connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor2.R, saveFile_TouchpadLEDColor2.G, saveFile_TouchpadLEDColor2.B);
 						connectedController.NormalTrigger(leftTrigger: false, rightTrigger: false, bothTriggers: true);
 						connectedController.SetMicLedStatus(MicLED.OFF);
 						connectedController.SetPlayerLedStatus(PlayerLED.AllOff, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED1, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED2, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED3, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED4, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED5);
@@ -8888,10 +8888,10 @@ public class Main : Window, IComponentConnector
 				if ((int)val3 == 1)
 				{
 					Color saveFile_TouchpadLEDColor3 = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-					_r = ((Color)(ref saveFile_TouchpadLEDColor3)).R;
-					_g = ((Color)(ref saveFile_TouchpadLEDColor3)).G;
-					_b = ((Color)(ref saveFile_TouchpadLEDColor3)).B;
-					connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor3)).R, ((Color)(ref saveFile_TouchpadLEDColor3)).G, ((Color)(ref saveFile_TouchpadLEDColor3)).B);
+					_r = saveFile_TouchpadLEDColor3.R;
+					_g = saveFile_TouchpadLEDColor3.G;
+					_b = saveFile_TouchpadLEDColor3.B;
+					connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor3.R, saveFile_TouchpadLEDColor3.G, saveFile_TouchpadLEDColor3.B);
 					connectedController.NormalTrigger(leftTrigger: false, rightTrigger: false, bothTriggers: true);
 					connectedController.SetMicLedStatus(MicLED.OFF);
 					connectedController.SetPlayerLedStatus(PlayerLED.AllOff, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED1, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED2, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED3, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED4, GlobalVar.Savefile.SaveFile_PlayerLEDCustom.PlayerLED5);
@@ -12806,35 +12806,35 @@ public class Main : Window, IComponentConnector
 			((Window)GlobalVar.splashScreen).WindowStartupLocation = (WindowStartupLocation)1;
 			break;
 		case GlobalVar.OverlayPos.TopRight:
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+			((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+			((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			break;
 		case GlobalVar.OverlayPos.TopLeft:
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+			((Window)GlobalVar.splashScreen).Left = workArea.Left;
+			((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			break;
 		case GlobalVar.OverlayPos.BottomRight:
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+			((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+			((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			break;
 		case GlobalVar.OverlayPos.BottomLeft:
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+			((Window)GlobalVar.splashScreen).Left = workArea.Left;
+			((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			break;
 		case GlobalVar.OverlayPos.TopCenter:
 			((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+			((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			break;
 		case GlobalVar.OverlayPos.BottomCenter:
 			((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+			((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			break;
 		case GlobalVar.OverlayPos.LeftCenter:
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
+			((Window)GlobalVar.splashScreen).Left = workArea.Left;
 			((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0;
 			break;
 		case GlobalVar.OverlayPos.RightCenter:
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+			((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
 			((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0;
 			break;
 		}
@@ -12893,23 +12893,23 @@ public class Main : Window, IComponentConnector
 		{
 			if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 			{
@@ -12928,12 +12928,12 @@ public class Main : Window, IComponentConnector
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 		}
@@ -12941,23 +12941,23 @@ public class Main : Window, IComponentConnector
 		{
 			if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 			{
@@ -12976,12 +12976,12 @@ public class Main : Window, IComponentConnector
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 		}
@@ -12989,23 +12989,23 @@ public class Main : Window, IComponentConnector
 		{
 			if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 			{
@@ -13024,12 +13024,12 @@ public class Main : Window, IComponentConnector
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 		}
@@ -13037,23 +13037,23 @@ public class Main : Window, IComponentConnector
 		{
 			if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 			{
@@ -13072,12 +13072,12 @@ public class Main : Window, IComponentConnector
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 		}
@@ -13085,23 +13085,23 @@ public class Main : Window, IComponentConnector
 		{
 			if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 			{
@@ -13111,21 +13111,21 @@ public class Main : Window, IComponentConnector
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopCenter)
 			{
 				((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0 + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomCenter)
 			{
 				((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0 + (double)GlobalVar.SaveFile_OverlayOffsetRight;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left + (double)GlobalVar.SaveFile_OverlayOffsetRight;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width + (double)GlobalVar.SaveFile_OverlayOffsetRight;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0;
 			}
 		}
@@ -13133,23 +13133,23 @@ public class Main : Window, IComponentConnector
 		{
 			if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 			{
@@ -13159,21 +13159,21 @@ public class Main : Window, IComponentConnector
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopCenter)
 			{
 				((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0 - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomCenter)
 			{
 				((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0 - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width - (double)GlobalVar.SaveFile_OverlayOffsetLeft;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0;
 			}
 		}
@@ -13181,23 +13181,23 @@ public class Main : Window, IComponentConnector
 		{
 			if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 			{
@@ -13207,21 +13207,21 @@ public class Main : Window, IComponentConnector
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopCenter)
 			{
 				((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomCenter)
 			{
 				((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 - (double)GlobalVar.SaveFile_OverlayOffsetUp;
 			}
 		}
@@ -13229,23 +13229,23 @@ public class Main : Window, IComponentConnector
 		{
 			if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 			{
@@ -13255,43 +13255,43 @@ public class Main : Window, IComponentConnector
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopCenter)
 			{
 				((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Top = workArea.Top + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomCenter)
 			{
 				((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0;
-				((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
+				((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
+				((Window)GlobalVar.splashScreen).Left = workArea.Left;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 			else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 			{
-				((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+				((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
 				((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0 + (double)GlobalVar.SaveFile_OverlayOffsetDown;
 			}
 		}
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopRight)
 		{
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+			((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+			((Window)GlobalVar.splashScreen).Top = workArea.Top;
 		}
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopLeft)
 		{
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+			((Window)GlobalVar.splashScreen).Left = workArea.Left;
+			((Window)GlobalVar.splashScreen).Top = workArea.Top;
 		}
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomRight)
 		{
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+			((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+			((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 		}
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomLeft)
 		{
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+			((Window)GlobalVar.splashScreen).Left = workArea.Left;
+			((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 		}
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.Center)
 		{
@@ -13301,21 +13301,21 @@ public class Main : Window, IComponentConnector
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.TopCenter)
 		{
 			((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Top;
+			((Window)GlobalVar.splashScreen).Top = workArea.Top;
 		}
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.BottomCenter)
 		{
 			((Window)GlobalVar.splashScreen).Left = primaryScreenWidth / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Width / 2.0;
-			((Window)GlobalVar.splashScreen).Top = ((Rect)(ref workArea)).Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
+			((Window)GlobalVar.splashScreen).Top = workArea.Bottom - ((FrameworkElement)GlobalVar.splashScreen).Height;
 		}
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.LeftCenter)
 		{
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Left;
+			((Window)GlobalVar.splashScreen).Left = workArea.Left;
 			((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0;
 		}
 		else if (GlobalVar.overlayPosVar == GlobalVar.OverlayPos.RightCenter)
 		{
-			((Window)GlobalVar.splashScreen).Left = ((Rect)(ref workArea)).Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
+			((Window)GlobalVar.splashScreen).Left = workArea.Right - ((FrameworkElement)GlobalVar.splashScreen).Width;
 			((Window)GlobalVar.splashScreen).Top = primaryScreenHeight / 2.0 - ((FrameworkElement)GlobalVar.splashScreen).Height / 2.0;
 		}
 	}
@@ -13503,15 +13503,15 @@ public class Main : Window, IComponentConnector
 		//IL_0511: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0544: Unknown result type (might be due to invalid IL or missing references)
 		Thickness margin = default(Thickness);
-		((Thickness)(ref margin)).Right = 1350.0;
-		((Thickness)(ref margin)).Left = 0.0;
-		((Thickness)(ref margin)).Top = 0.0;
-		((Thickness)(ref margin)).Bottom = 0.0;
+		margin.Right = 1350.0;
+		margin.Left = 0.0;
+		margin.Top = 0.0;
+		margin.Bottom = 0.0;
 		Thickness margin2 = default(Thickness);
-		((Thickness)(ref margin2)).Right = 1350.0;
-		((Thickness)(ref margin2)).Left = 0.0;
-		((Thickness)(ref margin2)).Top = 600.0;
-		((Thickness)(ref margin2)).Bottom = 0.0;
+		margin2.Right = 1350.0;
+		margin2.Left = 0.0;
+		margin2.Top = 600.0;
+		margin2.Bottom = 0.0;
 		if (InputPage_UseXboxLabelsSwitch.IsOn)
 		{
 			SyncButtonColorToControllerButton("None");
@@ -18641,10 +18641,10 @@ public class Main : Window, IComponentConnector
 			string colorMode = ((object)GlobalVar.Savefile.SaveFile_TouchpadLEDColor/*cast due to .constrained prefix*/).ToString();
 			GlobalVar.Savefile.SaveFile_ControllerLEDColorMode = TouchpadColorMode.StaticColor;
 			Color saveFile_TouchpadLEDColor = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-			connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
-			_r = ((Color)(ref saveFile_TouchpadLEDColor)).R;
-			_g = ((Color)(ref saveFile_TouchpadLEDColor)).G;
-			_b = ((Color)(ref saveFile_TouchpadLEDColor)).B;
+			connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
+			_r = saveFile_TouchpadLEDColor.R;
+			_g = saveFile_TouchpadLEDColor.G;
+			_b = saveFile_TouchpadLEDColor.B;
 			PlayLightShow(colorMode);
 			((UIElement)SettingsPage_PreviewLightshowBtn).IsEnabled = false;
 		}
@@ -18712,7 +18712,7 @@ public class Main : Window, IComponentConnector
 			{
 				GlobalVar.Savefile.SaveFile_ControllerLEDColorMode = TouchpadColorMode.StaticColor;
 				Color saveFile_TouchpadLEDColor = GlobalVar.Savefile.SaveFile_TouchpadLEDColor;
-				connectedController.SetLedColorRGB(((Color)(ref saveFile_TouchpadLEDColor)).R, ((Color)(ref saveFile_TouchpadLEDColor)).G, ((Color)(ref saveFile_TouchpadLEDColor)).B);
+				connectedController.SetLedColorRGB(saveFile_TouchpadLEDColor.R, saveFile_TouchpadLEDColor.G, saveFile_TouchpadLEDColor.B);
 			}
 			else if (ColorMode == "Rainbow")
 			{
