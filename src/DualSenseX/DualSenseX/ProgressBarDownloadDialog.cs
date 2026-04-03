@@ -12,7 +12,7 @@ namespace DualSenseX;
 
 public class ProgressBarDownloadDialog : ContentDialog, IComponentConnector
 {
-	internal ProgressBar ContinuousProgressBar;
+	internal ModernWpf.Controls.ProgressBar ContinuousProgressBar;
 
 	internal Label PleaseWaitLabel;
 
@@ -20,7 +20,7 @@ public class ProgressBarDownloadDialog : ContentDialog, IComponentConnector
 
 	internal Label ProgressValueLabel;
 
-	internal ProgressBar ProgressBar2;
+	internal ModernWpf.Controls.ProgressBar ProgressBar2;
 
 	private bool _contentLoaded;
 
@@ -68,7 +68,7 @@ public class ProgressBarDownloadDialog : ContentDialog, IComponentConnector
 		switch (connectionId)
 		{
 		case 1:
-			ContinuousProgressBar = (ProgressBar)target;
+			ContinuousProgressBar = (ModernWpf.Controls.ProgressBar)target;
 			break;
 		case 2:
 			PleaseWaitLabel = (Label)target;
@@ -80,7 +80,7 @@ public class ProgressBarDownloadDialog : ContentDialog, IComponentConnector
 			ProgressValueLabel = (Label)target;
 			break;
 		case 5:
-			ProgressBar2 = (ProgressBar)target;
+			ProgressBar2 = (ModernWpf.Controls.ProgressBar)target;
 			break;
 		default:
 			_contentLoaded = true;

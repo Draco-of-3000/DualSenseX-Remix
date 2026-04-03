@@ -56,7 +56,7 @@ internal class CustomMessageBoxWindow : Window, IComponentConnector
 
 	internal Border borderBackground;
 
-	internal Image Image_MessageBox;
+	internal System.Windows.Controls.Image Image_MessageBox;
 
 	internal TextBlock TextBlock_Message;
 
@@ -462,7 +462,7 @@ internal class CustomMessageBoxWindow : Window, IComponentConnector
 			borderBackground = (Border)target;
 			break;
 		case 3:
-			Image_MessageBox = (Image)target;
+			Image_MessageBox = (System.Windows.Controls.Image)target;
 			break;
 		case 4:
 			TextBlock_Message = (TextBlock)target;

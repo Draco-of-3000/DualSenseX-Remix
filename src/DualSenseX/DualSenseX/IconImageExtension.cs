@@ -2,11 +2,11 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Windows.UI.Xaml.Markup;
+using System.Windows.Markup;
 
 namespace DualSenseX;
 
-[MarkupExtensionReturnType]
+[MarkupExtensionReturnType(typeof(System.Windows.Media.ImageSource))]
 public class IconImageExtension : StaticResourceExtension
 {
 	private static readonly FontFamily fontFamily = new FontFamily("Segoe MDL2 Assets");
