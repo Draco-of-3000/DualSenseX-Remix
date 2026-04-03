@@ -70,7 +70,22 @@ using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 using ProgressBar = System.Windows.Controls.ProgressBar;
 using Rectangle = System.Windows.Shapes.Rectangle;
 using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
+using MenuItem = System.Windows.Controls.MenuItem;
 using TextBox = System.Windows.Controls.TextBox;
+using ToolTip = System.Windows.Controls.ToolTip;
+using Cursor = System.Windows.Input.Cursor;
+using Cursors = System.Windows.Input.Cursors;
+using Panel = System.Windows.Controls.Panel;
+using HorizontalAlignment = System.Windows.HorizontalAlignment;
+using VerticalAlignment = System.Windows.VerticalAlignment;
+using Orientation = System.Windows.Controls.Orientation;
+using DataGrid = System.Windows.Controls.DataGrid;
+using ContextMenu = System.Windows.Controls.ContextMenu;
+using DragEventArgs = System.Windows.DragEventArgs;
+using Timer = System.Threading.Timer;
+using Clipboard = System.Windows.Clipboard;
+using Point = System.Windows.Point;
+using Size = System.Windows.Size;
 
 namespace DualSenseX;
 
